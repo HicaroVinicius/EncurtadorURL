@@ -3,8 +3,10 @@
       "target": "es6",
       "module": "commonjs",
       "rootDir": "./",
-      "outDir": "./build",
+      "outDir": "dist",
       "esModuleInterop": true,
+      "sourceMap": true,
       "strict": true
-    }
+    },
+    "lib": ["es2015"]
 }
