@@ -39,11 +39,14 @@ class Server {
                 if(rows.length > 0){
                     res.redirect(rows[0].url);
                 }else{
-                    res.send('URL inválida. Cada URL gerada tem vida útil de 5 minutos');
+                    res.status(404).send('URL inválida. Cada URL gerada tem vida útil de 5 minutos');
                 }
             }else{
-                res.send('URL não encontrada nos parametros. Por favor, tente novamente!');
+                res.status(404).send('URL não encontrada nos parametros. Por favor, tente novamente!');
             }
+          });
+          this.app.get('*', function(req, res){
+            res.status(404).send('URL não encontrada nos parametros. Por favor, tente novamente!');
           });
     }
 
