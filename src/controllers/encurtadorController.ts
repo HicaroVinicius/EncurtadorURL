@@ -54,7 +54,8 @@ class EncurtadorController {
 
             // Conferindo se as informações foram salvas no banco de dados
             if(insertUrl.rows.length > 0){
-                res.send({ newUrl: `http://localhost:8081/${id}`});
+                const baseURL = process.env.BASE_URL || 'http://localhost:8081/';
+                res.send({ newUrl: `${baseURL}${id}`});
             }else{
                 res.send('Ocorreu um erro. Por favor, tente novamente!');
             }
